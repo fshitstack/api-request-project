@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+		<!--
+			changelog tirado script do onload, agora é per-request
+		!-->
+<head>
+	<title>Utilizando api Coinmarketcap</title>
+
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+	<!-- usando jquery  -->
+	<meta charset="utf-8">
+	
+<script type="text/javascript" src="coinmarket-api-consumo.js" ></script>
+</head>
+<body>
+
+
+
+	
+<form onsubmit="">
+<div class="form-group">
+	<label for="range-api-puxar">Puxar quantos da api: </label>
+	<select class="form-control" id="range-api-puxar">
+		<option value="0">Escolha valor</option>
+		<option value="10">10</option>
+		<option value="50">50</option>
+		<option value="100">100</option>
+		<option value="200">200</option>
+		<option value="500">500</option>
+		<option value="1000">1000</option>
+	</select>
+
+<p>
+   <input type="checkbox" checked="true" id="booldebug"  onchange="set_debug()"> debug info?
+   <input type="checkbox" checked="true" id="boolurl" onchange="set_urldebug()"> test error? 
+</p>
+<script>
+	 $('#boolurl').prop('checked', false);
+	 $('#booldebug').prop('checked',false);
+	 //definindo elas como desabilitadas por padrao
+
+function displayVals() {
+  var input_formulario = $( "#range-api-puxar" ).val();
+ // console.log(boolurl + " " + booldebug);
+  $( "p" ).html(puxar(input_formulario,booldebug,boolurl));
+}
+ 
+ //$( "input").val([ "check1", "check2" ]);
+
+$( "select" ).change( displayVals );
+//displayVals();
+
+
+</script>
+</body>
+</html>

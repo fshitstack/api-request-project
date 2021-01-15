@@ -1,0 +1,11 @@
+fazer uma GET request usando o metodo fetch do javascript
+
+necessario fazer tratamento de erros
+	eg
+		"response.ok"==200
+		"response.error==400,404
+
+
+a saida sera exibida no console do desenvolvedor pelo console.log
+
+
