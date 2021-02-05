@@ -1,3 +1,10 @@
+# VERSAO 2
+- seguido propostas do curso
+	+ feature mostrar o icone correspondente de cada criptomoeda
+		+failsafe caso nao tenha
+	inspirado no comentario de um dos devs no portal
+	
+
 # VERSAO 1
 
 - remover credenciais antes do push

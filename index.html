@@ -1,57 +1,81 @@
 <!DOCTYPE html>
-<html>
-		<!--
-			changelog tirado script do onload, agora é per-request
-		!-->
+<html >
+		<!--changelog tirado script do onload, agora é per-request!-->
 <head>
-	<title>Utilizando api Coinmarketcap</title>
+	<title>Utilizando API Coinmarketcap V2.8 </title>
+	
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	
+	<script type="text/javascript" src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/22cc5bbe/src/simplequerystring.min.js" 
+	>//for stringquery functions  </script>
 
-	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
-	<!-- usando jquery  -->
 	<meta charset="utf-8">
 	
 <script type="text/javascript" src="coinmarket-api-consumo.js" ></script>
+
 </head>
-<body>
-
-
-
-	
-<form onsubmit="">
-<div class="form-group">
-	<label for="range-api-puxar">Puxar quantos da api: </label>
-	<select class="form-control" id="range-api-puxar">
-		<option value="0">Escolha valor</option>
-		<option value="10">10</option>
-		<option value="50">50</option>
-		<option value="100">100</option>
-		<option value="200">200</option>
-		<option value="500">500</option>
-		<option value="1000">1000</option>
-	</select>
+<body onload="setters.updateUrlQuery()"> <!-- working fine here as intended-->
+<nav aria-label="breadcrumb">
+<ol class="breadcrumb">
+	<li class="breadcrumb-item active" aria-current="page">COINMARKETCAP API II</li>
+		</ol>
+		<form onsubmit="">
+			<div class="form-group">
+				<label for="range-api-puxar">Puxar quantos da api: </label>
+					<select class="form-control" id="range-api-puxar">
+						<option value="0">Escolha valor</option>
+						<option value="10">10</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+						<option value="200">200</option>
+						<option value="500">500</option>
+						<option value="1000">1000 (SAFE)</option>
+						<option value="2000">2000 (ABAIXO NOT SAFE)</option>
+						<option value="3000">3000 </option>
+						<option value="4000">4000 </option>
+						<option value="6000">6000(fail debug)</option>
+						</select>
+	<!-- todo refatorar this bit | status = sketches-->
 
 <p>
-   <input type="checkbox" checked="true" id="booldebug"  onchange="set_debug()"> debug info?
-   <input type="checkbox" checked="true" id="boolurl" onchange="set_urldebug()"> test error? 
+<input type="checkbox" checked="true" id="booldebug"  > debug info (F12)?<!-- onchange="setters.set_debug()" -->
+<input type="checkbox" checked="true" id="boolurl"> test error(debug purposes)? 
+<div class="d-flex p-3 bd-dark" id="execTime" ></div><!-- melhor atualizar quando acabar a funcao onclick=this.value=setters.runtime -->
 </p>
-<script>
-	 $('#boolurl').prop('checked', false);
-	 $('#booldebug').prop('checked',false);
-	 //definindo elas como desabilitadas por padrao
 
-function displayVals() {
-  var input_formulario = $( "#range-api-puxar" ).val();
- // console.log(boolurl + " " + booldebug);
-  $( "p" ).html(puxar(input_formulario,booldebug,boolurl));
-}
- 
- //$( "input").val([ "check1", "check2" ]);
+<script> 
+	 //voltando com vanilla js
+	 //$('#boolurl').prop('checked', false);
+	 //$('#booldebug').prop('checked',true);
+	 
+document.getElementById('boolurl').checked=false;
+document.getElementById('booldebug').checked=true; //preferencia
 
-$( "select" ).change( displayVals );
-//displayVals();
+document.querySelector('#boolurl').addEventListener('change',function (){
+	setters.set_urldebug();
+})
+document.querySelector('#booldebug').addEventListener('change',function(){
+	setters.set_debug(); // as funcoes toggl
+})
 
 
-</script>
+document.querySelector('#range-api-puxar').addEventListener('change',function(){
+	puxar(this.value);
+	//puxar(input_formulario,booldebug,boolurl));
+})
+
+</script> <!-- div a ser populada -->
+          </nav>
+          <div class="d-flex p-3 bd-highlight">
+            <div id='coins'></div>
+          </div>
+
+<p>#todo</p>
+<p> mudar de api mockup pra um dashboard simples,porém estruturado</p>
+<p>features todo</p>
+<li>- paginacao (lendo sobre Generators)</li>
+<li>- range selector</li>
+<li>- melhorar performance do codigo atual baseado no modulo sobre performance js</li>
+
 </body>
 </html>
