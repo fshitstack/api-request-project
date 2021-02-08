@@ -1,14 +1,23 @@
-# VERSAO 2
+# VERSAO 2.9~stable changelog
 - seguido propostas do curso
-	+ feature mostrar o icone correspondente de cada criptomoeda
-		+failsafe caso nao tenha
-	inspirado no comentario de um dos devs no portal
-	
+- custom features 
+	+ mostrar o icone correspondente de cada criptomoeda
+	+ failsafe caso nao tenha
+	+ dropped jquery pra js nativo
+	+ tempo de execucao main/full
+	+ url query pra api key 
+     - -  prefixo obrigatorio ?api=
+    
+
+> https://fshitstack.github.io/api-request-project/?api=xxx-xxx-xxx-xxx
+>> caso nao existe ele pede ao usuario
+    
+
 
 # VERSAO 1
 
 - remover credenciais antes do push
-  	alternativa:  USAR `PROMPT()`
+  	+ alternativa:  USAR `PROMPT()`
 
 - escopos de função melhorados
 
@@ -17,21 +26,18 @@
 
 ------
 
-time tracking foi feito, foram `$(horas)` gastas nesse projeto 
-grande parte artigos sobre consumos de API,bootstrap ,documentacao e funcionamento de promisses JS
-	tentei fazer isso o mais independente possivel sem copiar exemplos prontos 
- 	no maximo foi relendo codigos antigos
-
-
 
 Necessita de Moesif Origin & CORS Changer
 devido restricoes de segurança do browser
+> "Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource"
 
-Chrome
+[Coinmarketcap - criar conta:  https://coinmarketcap.com](https://coinmarketcap.com)
 
-https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc
+[chrome](https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc)
 
-Firefox
+[firefox](https://addons.mozilla.org/pt-BR/firefox/addon/moesif-origin-cors-changer1/)
 
-
-https://addons.mozilla.org/pt-BR/firefox/addon/moesif-origin-cors-changer1/
+## SCREENSHOTS
+![img1](print_api-project.jpg)
+![img2](debug info.jpg)
+![img3](credenciais prompt.jpg)
