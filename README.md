@@ -39,5 +39,5 @@ devido restricoes de segurança do browser
 
 ## SCREENSHOTS
 ![img1](print_api-project.jpg)
-![img2](debug info.jpg)
-![img3](credenciais prompt.jpg)
+![img2](debug\ info.jpg)
+![img3](credenciais\ prompt.jpg)
